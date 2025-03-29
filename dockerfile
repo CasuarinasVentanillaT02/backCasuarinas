@@ -1,4 +1,6 @@
-FROM amazoncorretto:21-alpine-jdk
+#FROM amazoncorretto:21-alpine-jdk
+FROM eclipse-temurin:21-jre-jammy
+
 
 # Instalar fontconfig y libfreetype6 con Alpine Package Keeper (apk)
 RUN apk add --no-cache fontconfig freetype
