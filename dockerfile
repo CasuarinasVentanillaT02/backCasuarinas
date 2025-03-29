@@ -15,21 +15,20 @@
 # # Ejecutar la aplicación en modo headless
 # ENTRYPOINT ["java", "-Djava.awt.headless=true", "-jar", "app.jar"]
 # Etapa de construcción
-FROM maven:3.8.6-openjdk-11-slim AS builder
-WORKDIR /workspace
-COPY . .
-RUN ./mvnw package
+# Usa una imagen base de OpenJDK 21
+FROM openjdk:21-jdk-slim
 
-# Etapa de ejecución
-FROM openjdk:11-jdk-slim
+# Crea un directorio de trabajo
 WORKDIR /app
-COPY --from=builder /workspace/target/CasuarinasRest-0.0.1-SNAPSHOT.jar /app/app.jar
 
-# Instalar dependencias necesarias para JasperReports
+# Copia el archivo JAR compilado al contenedor
+COPY target/CasuarinasRest-0.0.1-SNAPSHOT.jar /app/app.jar
+
+# Instala las dependencias necesarias para JasperReports
 RUN apt-get update && apt-get install -y \
     libfreetype6 \
     fontconfig \
     && rm -rf /var/lib/apt/lists/*
 
-# Configurar la aplicación para modo headless
+# Configura la aplicación para modo headless
 ENTRYPOINT ["java", "-Djava.awt.headless=true", "-jar", "/app/app.jar"]
