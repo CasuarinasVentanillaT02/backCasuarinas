@@ -8,5 +8,7 @@ WORKDIR /app
 # Copiar el archivo JAR generado por Spring Boot
 COPY target/CasuarinasRest-0.0.1-SNAPSHOT.jar app.jar
 
+ENV JAVA_TOOL_OPTIONS="-Djava.awt.headless=true"
+
 # Ejecutar la aplicación en modo headless
 ENTRYPOINT ["java", "-Djava.awt.headless=true", "-jar", "app.jar"]
