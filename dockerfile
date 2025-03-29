@@ -1,21 +1,3 @@
-# #FROM amazoncorretto:21-alpine-jdk
-# FROM eclipse-temurin:21-jre-jammy
-
-
-# # Instalar fontconfig y libfreetype6 con Alpine Package Keeper (apk)
-# RUN apk add --no-cache fontconfig freetype
-
-# WORKDIR /app
-
-# # Copiar el archivo JAR generado por Spring Boot
-# COPY target/CasuarinasRest-0.0.1-SNAPSHOT.jar app.jar
-
-# ENV JAVA_TOOL_OPTIONS="-Djava.awt.headless=true"
-
-# # Ejecutar la aplicación en modo headless
-# ENTRYPOINT ["java", "-Djava.awt.headless=true", "-jar", "app.jar"]
-# Etapa de construcción
-# Usa una imagen base de OpenJDK 21
 FROM openjdk:21-jdk-slim
 
 # Crea un directorio de trabajo
