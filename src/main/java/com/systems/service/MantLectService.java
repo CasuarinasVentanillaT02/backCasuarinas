@@ -17,7 +17,7 @@ public interface MantLectService {
 
     public ResultSpDTO fSpMantLectTorreCabSave(Integer idTorre, Integer idPeriodo);
 
-    public ResultSpDTO fSpMantLectTorreDetSave(Integer idTorre, Integer idPeriodo, LocalDate feLectura, Double imServicioAgua, Double nuM3Recibo,Integer totalRegistros, String cadRegId, String cadRegLect);
+    public ResultSpDTO fSpMantLectTorreDetSave(Integer idTorre, Integer idPeriodo, LocalDate feLectura, Double imServicioAgua, Double nuM3Recibo,Integer totalRegistros, String cadRegId, String cadRegLect,String cadRegStImg,String cadRegDeImg);
     
     public ResultSpDTO fSpMantLectTorreFin(Integer idTorre, Integer idPeriodo);
     

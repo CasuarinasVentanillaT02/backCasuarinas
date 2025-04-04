@@ -11,6 +11,7 @@ import com.systems.service.MantLectService;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class MantLectController {
     private final MantLectService mantLectService;
+    
+    @Value("${apiImgBB}")
+    private String apiImgBB;
+
+    @GetMapping("/apiKeyImgBB")
+    public String getApikeyImgBB(){
+        return apiImgBB;
+    }
     
     @GetMapping("/getTorres")
     public ResponseEntity<List<MantLectTorresDTO>> listaTorres() {
@@ -60,7 +69,9 @@ public class MantLectController {
                     mantLectCabDetSave.getNuM3Recibo(),
                     mantLectCabDetSave.getTotalRegistros(),
                     mantLectCabDetSave.getCadRegId(),
-                    mantLectCabDetSave.getCadRegLect()
+                    mantLectCabDetSave.getCadRegLect(),
+                    mantLectCabDetSave.getCadRegStImg(),
+                    mantLectCabDetSave.getCadRegDeImg()
         ));
     }
     

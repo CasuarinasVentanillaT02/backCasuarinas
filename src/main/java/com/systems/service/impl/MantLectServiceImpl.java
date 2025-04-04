@@ -93,10 +93,10 @@ public class MantLectServiceImpl implements MantLectService {
     }
 
     @Override
-    public ResultSpDTO fSpMantLectTorreDetSave(Integer idTorre, Integer idPeriodo, LocalDate feLectura, Double imServicioAgua, Double nuM3Recibo, Integer totalRegistros, String cadRegId, String cadRegLect) {
+    public ResultSpDTO fSpMantLectTorreDetSave(Integer idTorre, Integer idPeriodo, LocalDate feLectura, Double imServicioAgua, Double nuM3Recibo, Integer totalRegistros, String cadRegId, String cadRegLect,String cadRegStImg,String cadRegDeImg) {
         Integer idUsuario = this.userService.getLoginUser().getId_usuario();
 
-        List<Object[]> result = mantLectRepository.fSpMantLectTorreDetSave(idUsuario, idTorre, idPeriodo, feLectura, imServicioAgua,nuM3Recibo, totalRegistros, cadRegId, cadRegLect);
+        List<Object[]> result = mantLectRepository.fSpMantLectTorreDetSave(idUsuario, idTorre, idPeriodo, feLectura, imServicioAgua,nuM3Recibo, totalRegistros, cadRegId, cadRegLect,cadRegStImg,cadRegDeImg);
         if (!result.isEmpty()) {
             ResultSpDTO dto = new ResultSpDTO();
             for (Object[] row : result) {

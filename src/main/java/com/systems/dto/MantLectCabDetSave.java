@@ -20,4 +20,6 @@ public class MantLectCabDetSave {
     private Integer totalRegistros;
     private String cadRegId;
     private String cadRegLect;
+    private String cadRegStImg;
+    private String cadRegDeImg;
 }

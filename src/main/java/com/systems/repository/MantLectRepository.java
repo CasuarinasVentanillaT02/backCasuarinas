@@ -63,8 +63,9 @@ public interface MantLectRepository extends JpaRepository<EntityFake, Long> {
     @Query(value = "SELECT * FROM mantenimiento.f_sp_mantlect_torre_det_save_v2(" +
         "cast(:aiIdUsuario as integer), cast(:aiIdTorre as integer), cast(:aiIdPeriodo as integer), " +
         "cast(:adFeLectura as date), cast(:anImServicioAgua as numeric), cast(:anNuM3Recibo as numeric)," +
-        "cast(:anTotalRegistros as integer), cast(:asCadRegId as varchar), cast(:asCadRegLect as varchar))",
-        nativeQuery = true)
+        "cast(:anTotalRegistros as integer), cast(:asCadRegId as varchar), cast(:asCadRegLect as varchar),"+
+        "cast(:asCadRegStUrlImg as varchar), cast(:asCadRegDeUrlImg as varchar))"
+        ,nativeQuery = true)
     List<Object[]> fSpMantLectTorreDetSave(
         @Param("aiIdUsuario") Integer aiIdUsuario,
         @Param("aiIdTorre") Integer aiIdTorre,
@@ -74,7 +75,9 @@ public interface MantLectRepository extends JpaRepository<EntityFake, Long> {
         @Param("anNuM3Recibo") Double anNuM3Recibo,
         @Param("anTotalRegistros") Integer anTotalRegistros,
         @Param("asCadRegId") String asCadRegId,
-        @Param("asCadRegLect") String asCadRegLect
+        @Param("asCadRegLect") String asCadRegLect,
+        @Param("asCadRegStUrlImg") String asCadRegStUrlImg,
+        @Param("asCadRegDeUrlImg") String asCadRegDeUrlImg
     );
     
     @Query(value = "SELECT * from mantenimiento.f_sp_mantlect_torre_fin("
