@@ -14,4 +14,6 @@ public class MantLectVistaDetDTO {
     private Double nuLecturaAnterior;
     private Double nuLecturaActual;
     private Integer idMantenimientoDet;
+    private String stImagenUrl;
+    private String deImagenUrl;
 }
