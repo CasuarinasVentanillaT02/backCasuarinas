@@ -66,7 +66,9 @@ public class MantLectServiceImpl implements MantLectService {
                 dto.setNuLecturaAnterior(((BigDecimal) row[1]).doubleValue());
                 dto.setNuLecturaActual(((BigDecimal) row[2]).doubleValue());
                 dto.setIdMantenimientoDet((Integer) row[3]);
-
+                
+                dto.setStImagenUrl((String) row[4]);
+                dto.setDeImagenUrl((String) row[5]);
                 dtoList.add(dto);
             }
             return dtoList;
