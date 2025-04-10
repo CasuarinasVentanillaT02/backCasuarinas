@@ -201,4 +201,13 @@ public class MantLectServiceImpl implements MantLectService {
         }
         throw new RuntimeException("No se encontraron resultados");
     }
+    public String fViewMantLectDet01xUsuario(){
+        Integer idUsuario = this.userService.getLoginUser().getId_usuario();
+        Object[] result = mantLectRepository.fViewMantLectDet01xUsuario(idUsuario);
+        if(result.length>0){
+            return ((String)result[0]);
+        }
+        throw new RuntimeException("No se encontraron resultados");
+    }
+    
 }

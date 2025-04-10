@@ -26,4 +26,7 @@ public interface MantLectService {
     public List<MantLectVistaDetDTO> fViewMantLectDepasxTorrePeriodo(Integer idTorre, Integer idPeriodo);
     
     public List<MantLectPeriodosDTO> getPeriodosXusuarioTorre(Integer idTorre);
+    
+    public String fViewMantLectDet01xUsuario();
+    
 }

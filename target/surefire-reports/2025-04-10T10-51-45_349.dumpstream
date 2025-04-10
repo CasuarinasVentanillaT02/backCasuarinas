@@ -1,4 +1,4 @@
-# Created at 2025-04-04T22:28:32.467
+# Created at 2025-04-10T10:51:45.694
 Boot Manifest-JAR contains absolute paths in classpath 'D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root

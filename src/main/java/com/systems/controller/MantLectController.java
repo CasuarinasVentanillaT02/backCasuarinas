@@ -34,6 +34,11 @@ public class MantLectController {
         return apiImgBB;
     }
     
+    @GetMapping("/getLect")
+    public String vistaLectDepaxUsu(){
+        return mantLectService.fViewMantLectDet01xUsuario();
+    }
+    
     @GetMapping("/getTorres")
     public ResponseEntity<List<MantLectTorresDTO>> listaTorres() {
         return ResponseEntity.ok(mantLectService.getTorresxUsuario());

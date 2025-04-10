@@ -11,6 +11,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MantLectRepository extends JpaRepository<EntityFake, Long> {
     
+    @Query(value="select * from mantenimiento.f_view_mantlect_det01_x_usuario(:aiIdUsuario)",nativeQuery = true)
+    Object[] fViewMantLectDet01xUsuario(
+            @Param("aiIdUsuario") Integer aiIdUsuario
+    );
+    
     @Query(value="select * from mantenimiento.f_list_mantlect_periodo_x_usuario_torre(:aiIdUsuario,:aiIdTorre)", nativeQuery = true)
     List<Object[]> fListMantLectPeriodoXusuarioTorre(
             @Param("aiIdUsuario") Integer aiIdUsuario,
