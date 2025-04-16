@@ -89,7 +89,7 @@ public class AuthServiceImpl implements AuthService {
         
         final String accessToken = jwtService.generateToken(userResponse);
         
-        return new TokenResponse(200,1,"Token Refresh", accessToken,refreshToken);
+        return new TokenResponse(200,1,"Token Refresh", accessToken,accessToken);
     }
 
 }
