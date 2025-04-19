@@ -6,16 +6,19 @@ com\systems\dto\EntityFake.class
 com\systems\dto\MantLectVistaDetDTO$MantLectVistaDetDTOBuilder.class
 com\systems\repository\UserRepository.class
 com\systems\dto\MantLectCabSave$MantLectCabSaveBuilder.class
+com\systems\controller\HabitanteController.class
 com\systems\dto\Response$ResponseBuilder.class
 com\systems\service\AuthService.class
 com\systems\dto\VistaUsuarioxId.class
 com\systems\dto\VistaPerfilUsuarioxId.class
 com\systems\security\CustomUserDetailsService.class
 com\systems\dto\MantLectVistaCabDTO.class
+com\systems\service\impl\HabitanteServiceImpl.class
 com\systems\dto\UserDTO.class
 com\systems\exceptions\CustomAccessDeniedHandler.class
 com\systems\dto\ResultSpDTO$ResultSpDTOBuilder.class
 com\systems\service\ReportesService.class
+com\systems\repository\HabitanteRepository.class
 com\systems\dto\MantLectTorresDTO$MantLectTorresDTOBuilder.class
 com\systems\service\UserService.class
 com\systems\service\impl\AuthServiceImpl.class
@@ -47,6 +50,7 @@ com\systems\security\SecurityFilter.class
 com\systems\exceptions\InvalidCredentialsException.class
 com\systems\dto\MantLectPeriodosDTO.class
 com\systems\exceptions\NameValueRequiredException.class
+com\systems\dto\HabitantesEntity.class
 com\systems\dto\ListaHabitantes.class
 com\systems\config\ModelMapperConfig.class
 com\systems\dto\MantLectCabSave.class
@@ -56,5 +60,6 @@ com\systems\dto\TokenResponse.class
 com\systems\dto\MantLectCabDetSave.class
 com\systems\security\AuthFilter.class
 com\systems\dto\MantLectVistaCabDTO$MantLectVistaCabDTOBuilder.class
+com\systems\service\HabitanteService.class
 com\systems\service\impl\MantLectServiceImpl.class
 com\systems\dto\MantLectTorresDTO.class

@@ -1,9 +1,11 @@
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\config\ModelMapperConfig.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\controller\AuthController.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\controller\HabitanteController.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\controller\MantLectController.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\controller\ReportesController.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\controller\UserController.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\EntityFake.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\HabitantesEntity.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\ListaHabitantes.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\ListaRoles.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\LoginRequest.java
@@ -28,6 +30,7 @@ D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\sy
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\exceptions\NotFoundException.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\Main.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\repository\AuthRepository.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\repository\HabitanteRepository.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\repository\MantLectRepository.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\repository\UserRepository.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\security\AuthFilter.java
@@ -37,7 +40,9 @@ D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\sy
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\security\JwtUtils.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\security\SecurityFilter.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\service\AuthService.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\service\HabitanteService.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\service\impl\AuthServiceImpl.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\service\impl\HabitanteServiceImpl.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\service\impl\MantLectServiceImpl.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\service\impl\ReportesServiceImpl.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\service\impl\UserServiceImpl.java
