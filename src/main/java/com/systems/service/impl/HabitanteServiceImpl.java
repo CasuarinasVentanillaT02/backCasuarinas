@@ -49,5 +49,15 @@ public class HabitanteServiceImpl implements HabitanteService {
     public void deleteById(Long id) {
         habitanteRepository.deleteById(id);
     }
+
+    @Override
+    public Page<HabitantesEntity> findByDeApellidosNombres(String deApellidosdeNombres, Pageable pageable) {
+        return habitanteRepository.findByApellidosAndNombresCombinedNative(deApellidosdeNombres, pageable);
+    }
+
+    @Override
+    public Page<HabitantesEntity> findByNuDocumento(String nuDocumento, Pageable pageable) {
+        return habitanteRepository.findByNuDocumento(nuDocumento, pageable);
+    }
     
 }

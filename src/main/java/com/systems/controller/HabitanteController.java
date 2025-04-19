@@ -43,4 +43,21 @@ public class HabitanteController {
     public void deleteHabitante(@PathVariable Long id) {
         habitanteService.deleteById(id);
     }
+    
+    @GetMapping("/buscarApeNom")
+    public Page<HabitantesEntity> getHabitantesByCombinedNames(@RequestParam String parametro,
+                                                               @RequestParam(defaultValue = "0") int page,
+                                                               @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return habitanteService.findByDeApellidosNombres(parametro, pageable);
+    }
+    
+    @GetMapping("/buscarDoc")
+    public Page<HabitantesEntity> getHabitantesByDocumento(@RequestParam String parametro,
+                                                               @RequestParam(defaultValue = "0") int page,
+                                                               @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return habitanteService.findByNuDocumento(parametro, pageable);
+    }
+
 }

@@ -13,4 +13,9 @@ public interface HabitanteService {
     Page<HabitantesEntity> findAll(Pageable pageable); // Listar habitantes con paginación
 
     void deleteById(Long id); // Eliminar un habitante por ID
+    
+    Page<HabitantesEntity> findByDeApellidosNombres(String deApellidosdeNombres, Pageable pageable); // Buscar por apellidos con paginación
+
+    Page<HabitantesEntity> findByNuDocumento(String nuDocumento, Pageable pageable); // Buscar por documento con paginación
+
 }
