@@ -2,6 +2,8 @@ package com.systems.controller;
 
 import com.systems.dto.HabitantesEntity;
 import com.systems.service.HabitanteService;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("/api/habitantes/v1")
@@ -39,10 +43,32 @@ public class HabitanteController {
         return habitanteService.findAll(pageable);
     }
 
-    @DeleteMapping("/{id}")
+    /*@DeleteMapping("/{id}")
     public void deleteHabitante(@PathVariable Long id) {
         habitanteService.deleteById(id);
+    }*/
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Map<String, Object>> deleteHabitante(@PathVariable Long id) {
+        Map<String, Object> response = new HashMap<>();
+        Optional<HabitantesEntity> habitante = habitanteService.findById(id);
+        if (habitante.isEmpty()) {
+            response.put("status", 500);
+            response.put("message", "No se pudo eliminar el habitante. No Existe: " + id);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+        try {
+            habitanteService.deleteById(id); // Lógica para borrar el habitante
+            response.put("status", 200);
+            response.put("message", "Habitante eliminado correctamente.");
+            return ResponseEntity.ok(response); // Devuelve el código 200
+        } catch (Exception e) {
+            response.put("status", 500);
+            response.put("message", "No se pudo eliminar el habitante. Error: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // Devuelve el código 500
+        }
     }
+
+
     
     @GetMapping("/buscarApeNom")
     public Page<HabitantesEntity> getHabitantesByCombinedNames(@RequestParam String parametro,

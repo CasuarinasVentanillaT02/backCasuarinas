@@ -1,3 +1,4 @@
+com\systems\dto\UsuarioEntity.class
 com\systems\dto\MantLectPeriodosDTO$MantLectPeriodosDTOBuilder.class
 com\systems\dto\ResultSpDTO.class
 com\systems\service\impl\ReportesServiceImpl.class
@@ -38,6 +39,7 @@ com\systems\dto\ListaHabitantes$ListaHabitantesBuilder.class
 com\systems\dto\LoginRequest.class
 com\systems\repository\AuthRepository.class
 com\systems\controller\ReportesController.class
+com\systems\repository\TipoDocuRepository.class
 com\systems\dto\MantLectCabDetSave$MantLectCabDetSaveBuilder.class
 com\systems\dto\VistaPerfilUsuarioxId$VistaPerfilUsuarioxIdBuilder.class
 com\systems\exceptions\GlobalExceptionHandler.class
@@ -60,6 +62,7 @@ com\systems\dto\TokenResponse.class
 com\systems\dto\MantLectCabDetSave.class
 com\systems\security\AuthFilter.class
 com\systems\dto\MantLectVistaCabDTO$MantLectVistaCabDTOBuilder.class
+com\systems\dto\TipoDocuEntity.class
 com\systems\service\HabitanteService.class
 com\systems\service\impl\MantLectServiceImpl.class
 com\systems\dto\MantLectTorresDTO.class

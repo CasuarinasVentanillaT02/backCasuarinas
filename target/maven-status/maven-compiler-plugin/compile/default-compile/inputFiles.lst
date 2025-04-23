@@ -17,9 +17,11 @@ D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\sy
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\MantLectVistaDetDTO.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\Response.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\ResultSpDTO.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\TipoDocuEntity.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\TokenResponse.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\UserDTO.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\UserResponse.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\UsuarioEntity.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\VistaPerfilUsuarioxId.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\VistaUsuarioxId.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\exceptions\CustomAccessDeniedHandler.java
@@ -32,6 +34,7 @@ D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\sy
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\repository\AuthRepository.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\repository\HabitanteRepository.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\repository\MantLectRepository.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\repository\TipoDocuRepository.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\repository\UserRepository.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\security\AuthFilter.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\security\AuthUser.java
