@@ -1,6 +1,8 @@
 package com.systems.service.impl;
 
+import com.systems.dto.HabiTratamientoDTO;
 import com.systems.dto.HabitantesEntity;
+import com.systems.dto.TipoDocuDTO;
 import com.systems.dto.TipoDocuEntity;
 import com.systems.dto.UsuarioEntity;
 import com.systems.repository.HabitanteRepository;
@@ -8,6 +10,8 @@ import com.systems.repository.TipoDocuRepository;
 import com.systems.service.HabitanteService;
 import com.systems.service.UserService;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +96,38 @@ public class HabitanteServiceImpl implements HabitanteService {
     @Override
     public Page<HabitantesEntity> findByNuDocumento(String nuDocumento, Pageable pageable) {
         return habitanteRepository.findByNuDocumento(nuDocumento, pageable);
+    }
+
+    @Override
+    public List<TipoDocuDTO> listTipoDocu() {
+        List<TipoDocuDTO> dtoList = new ArrayList<>();
+        List<Object[]> result = habitanteRepository.listTipoDocu();
+        if(!result.isEmpty()){
+            for(Object[] row : result){
+                TipoDocuDTO dto = new TipoDocuDTO();
+                dto.setId_tipo_docu((Integer) row[0]);
+                dto.setDe_tipo_docu((String) row[1]);
+                
+                dtoList.add(dto);
+            }
+        }        
+        return dtoList;
+    }
+
+    @Override
+    public List<HabiTratamientoDTO> listHabiTratamiento() {
+        List<HabiTratamientoDTO> dtoList = new ArrayList<>();
+        List<Object[]> result = habitanteRepository.listHabiTratamiento();
+        if(!result.isEmpty()){
+            for(Object[] row : result){
+                HabiTratamientoDTO dto = new HabiTratamientoDTO();
+                dto.setId_tratamiento((Integer) row[0]);
+                dto.setDe_tratamiento((String) row[1]);
+                
+                dtoList.add(dto);
+            }
+        }        
+        return dtoList;
     }
     
 }

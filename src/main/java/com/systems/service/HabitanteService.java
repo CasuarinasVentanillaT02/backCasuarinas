@@ -1,6 +1,9 @@
 package com.systems.service;
 
+import com.systems.dto.HabiTratamientoDTO;
 import com.systems.dto.HabitantesEntity;
+import com.systems.dto.TipoDocuDTO;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,4 +21,7 @@ public interface HabitanteService {
 
     Page<HabitantesEntity> findByNuDocumento(String nuDocumento, Pageable pageable); // Buscar por documento con paginación
 
+    List<TipoDocuDTO> listTipoDocu();
+    
+    List<HabiTratamientoDTO> listHabiTratamiento();
 }

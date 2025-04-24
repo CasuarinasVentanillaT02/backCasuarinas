@@ -1,8 +1,11 @@
 package com.systems.controller;
 
+import com.systems.dto.HabiTratamientoDTO;
 import com.systems.dto.HabitantesEntity;
+import com.systems.dto.TipoDocuDTO;
 import com.systems.service.HabitanteService;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,5 +88,14 @@ public class HabitanteController {
         Pageable pageable = PageRequest.of(page, size);
         return habitanteService.findByNuDocumento(parametro, pageable);
     }
-
+    
+    @GetMapping("/tipoDocu")
+    public List<TipoDocuDTO> getTipoDocu(){
+        return habitanteService.listTipoDocu();
+    }
+    
+    @GetMapping("/habiTratamiento")
+    public List<HabiTratamientoDTO> getTratamiento(){
+        return habitanteService.listHabiTratamiento();
+    }
 }

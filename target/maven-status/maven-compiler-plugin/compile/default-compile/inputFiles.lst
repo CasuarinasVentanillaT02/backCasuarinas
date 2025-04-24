@@ -6,6 +6,7 @@ D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\sy
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\controller\UserController.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\EntityFake.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\HabitantesEntity.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\HabiTratamientoDTO.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\ListaHabitantes.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\ListaRoles.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\LoginRequest.java
@@ -17,6 +18,7 @@ D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\sy
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\MantLectVistaDetDTO.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\Response.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\ResultSpDTO.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\TipoDocuDTO.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\TipoDocuEntity.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\TokenResponse.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\UserDTO.java
