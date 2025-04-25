@@ -6,6 +6,7 @@ import com.systems.dto.ResultSpDTO;
 import com.systems.dto.UserDTO;
 import com.systems.dto.VistaPerfilUsuarioxId;
 import com.systems.dto.VistaUsuarioxId;
+import com.systems.exceptions.CustomException;
 import com.systems.repository.UserRepository;
 import com.systems.service.UserService;
 import java.sql.Timestamp;
@@ -14,9 +15,11 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Slf4j
 @Service
@@ -187,28 +190,37 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO getLoginUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String usuario = authentication.getName();
-        System.out.println("usuario login: "+usuario);
-        List<Object[]> user = userRepository.findByDeAlias(usuario);
-                //.orElseThrow(()->new NotFoundException("Usuario no encontrado"));
-        UserDTO dto = new UserDTO();
+        try{
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();          
+            
+            String usuario = authentication.getName();
+            if (usuario.isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Usuario no esta Autenticado");
+            }
+            System.out.println("usuario login: "+usuario);
+            List<Object[]> user = userRepository.findByDeAlias(usuario);
+                    //.orElseThrow(()->new NotFoundException("Usuario no encontrado"));
+            UserDTO dto = new UserDTO();
+
+            Object[] row = user.get(0);
+
+            dto.setDe_habitante((String)row[0]);
+            dto.setDe_alias((String)row[1]);
+            dto.setDe_clave((String)row[2]);
+            dto.setDe_rol((String)row[3]);
+            dto.setSt_activo((String)row[4]);
+            dto.setDe_usuario_reg((String)row[5]);
+            dto.setFe_reg(row[6] != null ? ((Timestamp) row[6]).toLocalDateTime() : null);
+            dto.setDe_usuario_upd((String)row[7]); 
+            dto.setFe_reg(row[8] != null ? ((Timestamp) row[8]).toLocalDateTime() : null);
+            dto.setId_usuario((Integer)row[9]);
+            dto.setId_habitante((Integer)row[10]);
+            dto.setId_rol((Integer)row[11]);
+            return dto;
+        }catch(ResponseStatusException e){
+            throw new CustomException("Error al consultar el usuario", e);
+        }
         
-        Object[] row = user.get(0);
-        
-        dto.setDe_habitante((String)row[0]);
-        dto.setDe_alias((String)row[1]);
-        dto.setDe_clave((String)row[2]);
-        dto.setDe_rol((String)row[3]);
-        dto.setSt_activo((String)row[4]);
-        dto.setDe_usuario_reg((String)row[5]);
-        dto.setFe_reg(row[6] != null ? ((Timestamp) row[6]).toLocalDateTime() : null);
-        dto.setDe_usuario_upd((String)row[7]); 
-        dto.setFe_reg(row[8] != null ? ((Timestamp) row[8]).toLocalDateTime() : null);
-        dto.setId_usuario((Integer)row[9]);
-        dto.setId_habitante((Integer)row[10]);
-        dto.setId_rol((Integer)row[11]);
-        return dto;
     }
 
     @Override
