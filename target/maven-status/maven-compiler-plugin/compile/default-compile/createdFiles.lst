@@ -1,6 +1,7 @@
 com\systems\dto\UsuarioEntity.class
 com\systems\dto\MantLectPeriodosDTO$MantLectPeriodosDTOBuilder.class
 com\systems\dto\ResultSpDTO.class
+com\systems\exceptions\CustomException.class
 com\systems\service\impl\ReportesServiceImpl.class
 com\systems\security\JwtUtils.class
 com\systems\dto\EntityFake.class

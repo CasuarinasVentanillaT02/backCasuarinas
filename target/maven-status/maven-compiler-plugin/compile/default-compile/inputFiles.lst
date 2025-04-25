@@ -28,6 +28,7 @@ D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\sy
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\VistaUsuarioxId.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\exceptions\CustomAccessDeniedHandler.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\exceptions\CustomAuthenticationEntryPoint.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\exceptions\CustomException.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\exceptions\GlobalExceptionHandler.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\exceptions\InvalidCredentialsException.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\exceptions\NameValueRequiredException.java
