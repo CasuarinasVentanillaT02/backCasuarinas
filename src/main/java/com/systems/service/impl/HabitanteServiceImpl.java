@@ -2,6 +2,7 @@ package com.systems.service.impl;
 
 import com.systems.dto.HabiTratamientoDTO;
 import com.systems.dto.HabitantesEntity;
+import com.systems.dto.ResultSpDTO;
 import com.systems.dto.TipoDocuDTO;
 import com.systems.dto.TipoDocuEntity;
 import com.systems.dto.UsuarioEntity;
@@ -41,6 +42,7 @@ public class HabitanteServiceImpl implements HabitanteService {
     public HabitantesEntity saveHabitante(HabitantesEntity habitante) {
         if(habitante.getIdHabitante() == null){
             habitante.setIdUsuarioReg(this.userService.getLoginUser().getId_usuario());
+            habitante.setFeReg(LocalDateTime.now());
             return habitanteRepository.save(habitante);
         }else{
             HabitantesEntity habitanteUpd = habitanteRepository.findById(habitante.getIdHabitante())
@@ -80,7 +82,8 @@ public class HabitanteServiceImpl implements HabitanteService {
 
     @Override
     public Page<HabitantesEntity> findAll(Pageable pageable) {
-        return habitanteRepository.findAll(pageable);
+        //return habitanteRepository.findAll(pageable);
+        return habitanteRepository.findByIdHabitanteNot(1L, pageable);
     }
 
     @Override
@@ -128,6 +131,22 @@ public class HabitanteServiceImpl implements HabitanteService {
             }
         }        
         return dtoList;
+    }
+
+    @Override
+    public ResultSpDTO getValTipoNumdocu(Long idHabitante, Integer idTipoDocu, String nuDocumento) {
+        List<Object[]> result = habitanteRepository.getValTipoNumdocu(idHabitante, idTipoDocu, nuDocumento);
+        if (!result.isEmpty()) {
+            ResultSpDTO dto = new ResultSpDTO();
+            for (Object[] row : result) {
+                dto.setCodigo((Integer) row[0]);
+                dto.setStatus(dto.getCodigo() == 0 ? 500 : 200);
+                dto.setMensaje((String) row[1]);
+
+            }
+            return dto;
+        }
+        throw new RuntimeException("No se encontraron resultados");
     }
     
 }

@@ -2,6 +2,7 @@ package com.systems.controller;
 
 import com.systems.dto.HabiTratamientoDTO;
 import com.systems.dto.HabitantesEntity;
+import com.systems.dto.ResultSpDTO;
 import com.systems.dto.TipoDocuDTO;
 import com.systems.service.HabitanteService;
 import java.util.HashMap;
@@ -97,5 +98,10 @@ public class HabitanteController {
     @GetMapping("/habiTratamiento")
     public List<HabiTratamientoDTO> getTratamiento(){
         return habitanteService.listHabiTratamiento();
+    }
+    
+    @GetMapping("/valTipoNumDocu")
+    public ResultSpDTO getValTipoNumdocu(@RequestParam Long idHabitante,@RequestParam Integer idTipoDocu,@RequestParam String nuDocumento){
+        return habitanteService.getValTipoNumdocu(idHabitante, idTipoDocu, nuDocumento);
     }
 }

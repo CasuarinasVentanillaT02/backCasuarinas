@@ -2,6 +2,7 @@ package com.systems.service;
 
 import com.systems.dto.HabiTratamientoDTO;
 import com.systems.dto.HabitantesEntity;
+import com.systems.dto.ResultSpDTO;
 import com.systems.dto.TipoDocuDTO;
 import java.util.List;
 import java.util.Optional;
@@ -24,4 +25,6 @@ public interface HabitanteService {
     List<TipoDocuDTO> listTipoDocu();
     
     List<HabiTratamientoDTO> listHabiTratamiento();
+    
+    ResultSpDTO getValTipoNumdocu(Long idHabitante,Integer idTipoDocu,String nuDocumento);
 }

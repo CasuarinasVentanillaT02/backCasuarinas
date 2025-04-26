@@ -18,5 +18,11 @@ public interface HabitanteRepository extends JpaRepository<HabitantesEntity,Long
     List<Object[]>listTipoDocu();
     @Query(value = "SELECT * FROM mantenimiento.tb_habitante_tratamiento ORDER BY nu_orden", nativeQuery = true)
     List<Object[]>listHabiTratamiento();
+    
+    Page<HabitantesEntity> findByIdHabitanteNot(Long idHabitante, Pageable pageable);
+    
+    @Query(value = "select * from mantenimiento.f_val_tipo_num_docu(:idHabitante,:idTipoDocu,:NuDocumeto)", nativeQuery = true)
+    List<Object[]>getValTipoNumdocu(@Param("idHabitante") Long idHabitante,@Param("idTipoDocu") Integer idTipoDocu,@Param("NuDocumeto") String NuDocumeto);
+        
 }
 
