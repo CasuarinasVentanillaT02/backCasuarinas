@@ -32,7 +32,7 @@ public class AuthController {
         return authService.refreshToken(authHeader);
     }
     
-    @GetMapping
+    @GetMapping("/holaJava")
     public String holaJava(){
         return "Hola Java: "+LocalDateTime.now().toString();
     }
