@@ -1,5 +1,6 @@
 package com.systems.controller;
 
+import com.systems.dto.ClavesCambioDTO;
 import com.systems.dto.ListaHabitantes;
 import com.systems.dto.ListaRoles;
 import com.systems.dto.ResultSpDTO;
@@ -40,7 +41,7 @@ public class UserController {
     
     @PostMapping
     public ResponseEntity<ResultSpDTO> UserSave(@RequestBody @Valid VistaUsuarioxId vistaUsuarioxId) {
-        log.info("Cuerpo Body, {}", vistaUsuarioxId.getDe_alias());
+        //log.info("Cuerpo Body, {}", vistaUsuarioxId.getDe_alias());
         System.out.println("mirame");        
         return ResponseEntity.ok(userService.userSave(vistaUsuarioxId));
     }
@@ -76,5 +77,10 @@ public class UserController {
     @GetMapping("/perfil")
     public ResponseEntity<VistaPerfilUsuarioxId> getPerfilUser() {
         return ResponseEntity.ok(userService.getUserPerfilXid());
+    }
+    
+    @PostMapping("/cambiarClave")
+    public ResponseEntity<ResultSpDTO> fSpChangePass(@RequestBody @Valid ClavesCambioDTO clavesCambioDTO) {
+        return ResponseEntity.ok(userService.fSpChangePass(clavesCambioDTO.getDeClaveActual(),clavesCambioDTO.getDeClaveNueva()));
     }
 }

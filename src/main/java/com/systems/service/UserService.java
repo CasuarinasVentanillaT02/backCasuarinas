@@ -9,6 +9,7 @@ import com.systems.dto.VistaPerfilUsuarioxId;
 import java.util.List;
 
 public interface UserService {
+    ResultSpDTO fSpChangePass(String deClaveActual,String deClaveNueva);
     ResultSpDTO userDelxId(Integer idUsuario);
     ResultSpDTO userUpd(VistaUsuarioxId vistaUsuarioxId);
     ResultSpDTO userSave(VistaUsuarioxId vistaUsuarioxId);

@@ -3,9 +3,11 @@ package com.systems.controller;
 import com.systems.dto.LoginRequest;
 import com.systems.dto.TokenResponse;
 import com.systems.service.AuthService;
+import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -30,4 +32,8 @@ public class AuthController {
         return authService.refreshToken(authHeader);
     }
     
+    @GetMapping
+    public String holaJava(){
+        return "Hola Java: "+LocalDateTime.now().toString();
+    }
 }

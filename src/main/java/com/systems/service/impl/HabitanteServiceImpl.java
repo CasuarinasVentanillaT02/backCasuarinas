@@ -5,7 +5,6 @@ import com.systems.dto.HabitantesEntity;
 import com.systems.dto.ResultSpDTO;
 import com.systems.dto.TipoDocuDTO;
 import com.systems.dto.TipoDocuEntity;
-import com.systems.dto.UsuarioEntity;
 import com.systems.repository.HabitanteRepository;
 import com.systems.repository.TipoDocuRepository;
 import com.systems.service.HabitanteService;

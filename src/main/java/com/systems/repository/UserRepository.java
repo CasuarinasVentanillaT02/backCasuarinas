@@ -1,10 +1,7 @@
 package com.systems.repository;
 
 import com.systems.dto.EntityFake;
-import com.systems.dto.UserDTO;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,6 +9,13 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<EntityFake, Long> {
+    
+    @Query(value = "select * from mantenimiento.f_sp_change_pass(:aiIdUsuario,:asDeClaveActual,:asDeClaveNueva)", nativeQuery = true)
+    List<Object[]> fSpChangePass(
+            @Param("aiIdUsuario") Integer aiIdUsuario,
+            @Param("asDeClaveActual") String asDeClaveActual,
+            @Param("asDeClaveNueva") String asDeClaveNueva
+    );
 
     @Query(value = "SELECT * from mantenimiento.f_sp_user_del(:aiIdUsuario)", nativeQuery = true)
     List<Object[]> fSpUserDel(

@@ -62,6 +62,7 @@ com\systems\config\ModelMapperConfig.class
 com\systems\dto\MantLectCabSave.class
 com\systems\service\impl\UserServiceImpl.class
 com\systems\security\CorsConfig.class
+com\systems\dto\ClavesCambioDTO.class
 com\systems\dto\TokenResponse.class
 com\systems\dto\MantLectCabDetSave.class
 com\systems\security\AuthFilter.class
