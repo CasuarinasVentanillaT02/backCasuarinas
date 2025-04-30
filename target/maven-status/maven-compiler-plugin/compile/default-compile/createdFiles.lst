@@ -26,6 +26,7 @@ com\systems\dto\HabiTratamientoDTO$HabiTratamientoDTOBuilder.class
 com\systems\dto\MantLectTorresDTO$MantLectTorresDTOBuilder.class
 com\systems\service\UserService.class
 com\systems\service\impl\AuthServiceImpl.class
+com\systems\service\VigilanciaService.class
 com\systems\dto\VistaUsuarioxId$VistaUsuarioxIdBuilder.class
 com\systems\exceptions\NotFoundException.class
 com\systems\repository\MantLectRepository.class
@@ -35,6 +36,7 @@ com\systems\dto\UserDTO$UserDTOBuilder.class
 com\systems\Main.class
 com\systems\controller\AuthController.class
 com\systems\service\MantLectService.class
+com\systems\controller\VigilanciaController.class
 com\systems\dto\ListaRoles.class
 com\systems\dto\Response.class
 com\systems\security\AuthUser.class
@@ -44,6 +46,7 @@ com\systems\dto\LoginRequest.class
 com\systems\repository\AuthRepository.class
 com\systems\controller\ReportesController.class
 com\systems\repository\TipoDocuRepository.class
+com\systems\dto\VigCocheraHabiDTO.class
 com\systems\dto\MantLectCabDetSave$MantLectCabDetSaveBuilder.class
 com\systems\dto\VistaPerfilUsuarioxId$VistaPerfilUsuarioxIdBuilder.class
 com\systems\exceptions\GlobalExceptionHandler.class
@@ -52,6 +55,7 @@ com\systems\controller\MantLectController.class
 com\systems\dto\MantLectVistaDetDTO.class
 com\systems\dto\UserResponse.class
 com\systems\security\AuthUser$AuthUserBuilder.class
+com\systems\service\impl\VigilanciaServiceImpl.class
 com\systems\security\SecurityFilter.class
 com\systems\exceptions\InvalidCredentialsException.class
 com\systems\dto\MantLectPeriodosDTO.class
@@ -63,6 +67,7 @@ com\systems\dto\MantLectCabSave.class
 com\systems\service\impl\UserServiceImpl.class
 com\systems\security\CorsConfig.class
 com\systems\dto\ClavesCambioDTO.class
+com\systems\repository\VigilanciaRepository.class
 com\systems\dto\TokenResponse.class
 com\systems\dto\MantLectCabDetSave.class
 com\systems\security\AuthFilter.class
