@@ -45,6 +45,12 @@ public class VigilanciaServiceImpl implements VigilanciaService {
             throw new RuntimeException("No se encontraron resultados");
         }else{
             dto.setDe_existe("X");
+            dto.setDe_habitante("-");
+            dto.setDe_depa_habitante("-");
+            dto.setDe_ubic_cochera("-");
+            dto.setDe_placa("-");
+            dto.setSt_propietario("-");
+            dto.setSt_activo("-");
             dto.setDe_observaciones("Esta APK esta Descontinuada, debe actualizar para continuar usando");
             return dto;
         }
