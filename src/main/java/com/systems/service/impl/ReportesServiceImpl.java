@@ -2,15 +2,12 @@ package com.systems.service.impl;
 
 import com.systems.repository.MantLectRepository;
 import com.systems.service.ReportesService;
-import com.systems.service.UserService;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.sql.DataSource;
-import lombok.RequiredArgsConstructor;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;

@@ -33,13 +33,16 @@ public class JwtUtils {
     }
     
     private String buildToken(final UserResponse user,final long expiration){
+        Map<String, Object> claims = Map.of(
+            "deMensaje", user.asoDeResult(),
+            "deHabitante", user.asoDeHabitante(),
+            "idHabitante", user.aioIdHabitante(),
+            "idUsuario", user.aioIdUsuario(),
+            "deRol", user.asoDeRol()
+        );
         return Jwts.builder()
                 .id(user.aioIdUsuario().toString())
-                .claims(Map.of("deMensaje",user.asoDeResult()))
-                .claims(Map.of("deHabitante",user.asoDeHabitante()))
-                .claims(Map.of("idHabitante",user.aioIdHabitante().toString()))
-                .claims(Map.of("idUsuario",user.aioIdUsuario().toString()))
-                .claims(Map.of("deRol",user.asoDeRol()))
+                .claims(claims)
                 .subject(user.asoDeAlias())
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis()+expiration))

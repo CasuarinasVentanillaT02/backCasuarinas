@@ -71,37 +71,40 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public TokenResponse refreshToken(final String authHeader) {
-        if(authHeader == null || !authHeader.startsWith("Bearer ")){
-            throw new IllegalArgumentException("Invalido token Bearer");
+    public TokenResponse refreshToken(final String refreshToken) {
+        if (refreshToken == null || refreshToken.isBlank()) {
+            throw new IllegalArgumentException("Refresh Token no puede ser nulo o vacío");
         }
-        final String refreshToken = authHeader.substring(7);
+
         final String username = jwtService.extractUsername(refreshToken);
-        
-        if(username == null){
-            throw new IllegalArgumentException("Invalido Refresh Token 1");
+
+        if (username == null) {
+            throw new IllegalArgumentException("Refresh Token inválido: sin usuario");
         }
-        
+
         List<Object[]> userArray = authRepository.validateUser(username);
-                //.orElseThrow(()->UsernameNotFoundException(username));
+        if (userArray.isEmpty()) {
+            throw new IllegalArgumentException("Usuario no encontrado");
+        }
+
         Object[] user = userArray.get(0);
         UserResponse userResponse = new UserResponse(
-                (Integer) user[0], // aio_nu_result
-                (String) user[1], // aso_de_result
-                (Integer) user[2], // aio_id_usuario
-                (String) user[3], // aso_de_alias
-                (String) user[4], // aso_de_rol
-                (Integer) user[5], // aio_id_habitante
-                (String) user[6] // aso_de_habitante
+            (Integer) user[0], // aio_nu_result
+            (String) user[1], // aso_de_result
+            (Integer) user[2], // aio_id_usuario
+            (String) user[3], // aso_de_alias
+            (String) user[4], // aso_de_rol
+            (Integer) user[5], // aio_id_habitante
+            (String) user[6]  // aso_de_habitante
         );
-        
-        if(!jwtService.isTokenValid(refreshToken,userResponse)){
-            throw new IllegalArgumentException("Invalido Refresh Token 2");
+
+        if (!jwtService.isTokenValid(refreshToken, userResponse)) {
+            throw new IllegalArgumentException("Refresh Token inválido");
         }
-        
-        final String accessToken = jwtService.generateToken(userResponse);
-        
-        return new TokenResponse(200,1,"Token Refresh", accessToken,accessToken);
+
+        final String newAccessToken = jwtService.generateToken(userResponse);
+
+        return new TokenResponse(200, 1, "Token actualizado correctamente", newAccessToken, refreshToken);
     }
 
 }

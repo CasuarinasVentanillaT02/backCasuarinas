@@ -29,9 +29,11 @@ public class VigilanciaServiceImpl implements VigilanciaService {
         VigCocheraHabiDTO dto = new VigCocheraHabiDTO();
         if(secretKeyApk.equals(secretKey)){
             List<Object[]> result = vigilanciaRepository.fViewVigHabiVehiCocheraXPlaca(asDePlaca);
-            log.info("Result, {}", result);
+            
             if(!result.isEmpty()){
                 Object[] row = result.get(0);
+                log.info("row, {}", row);
+                
                 dto.setDe_existe((String) row[0]);
                 dto.setDe_habitante((String) row[1]);
                 dto.setDe_depa_habitante((String) row[2]);
