@@ -26,13 +26,17 @@ public class AuthController {
         final TokenResponse token = authService.login(loginRequest);
 
         // Crear cookie con refresh token
-        Cookie refreshCookie = new Cookie("refreshToken", token.refreshToken());
-        refreshCookie.setHttpOnly(true);
-        refreshCookie.setSecure(true); // importante si usas HTTPS
-        refreshCookie.setPath("/api/auth/refresh");
-        refreshCookie.setMaxAge(7 * 24 * 60 * 60); // 7 días, en segundos
+        // ✅ Cookie moderna - compatible con frontend moderno (Angular)
+        ResponseCookie refreshCookie = ResponseCookie.from("refreshToken", token.refreshToken())
+                .httpOnly(true)
+                .secure(true)
+                .path("/api/auth/refresh")
+                .maxAge(7 * 24 * 60 * 60) // 7 días
+                .sameSite("None") // <-- importante si tu frontend está en otro dominio
+                .build();
 
-        response.addCookie(refreshCookie);
+        response.addHeader(HttpHeaders.SET_COOKIE, refreshCookie.toString());
+
 
         // Retornar solo el accessToken al frontend
         return ResponseEntity.ok(new TokenResponse(
