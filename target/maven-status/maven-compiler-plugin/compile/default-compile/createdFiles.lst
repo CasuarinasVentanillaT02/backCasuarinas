@@ -66,6 +66,7 @@ com\systems\config\ModelMapperConfig.class
 com\systems\dto\MantLectCabSave.class
 com\systems\service\impl\UserServiceImpl.class
 com\systems\security\CorsConfig.class
+com\systems\security\CryptoJSDecrypt.class
 com\systems\dto\ClavesCambioDTO.class
 com\systems\repository\VigilanciaRepository.class
 com\systems\dto\TokenResponse.class

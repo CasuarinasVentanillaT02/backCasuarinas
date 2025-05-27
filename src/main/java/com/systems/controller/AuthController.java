@@ -1,7 +1,9 @@
 package com.systems.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.systems.dto.LoginRequest;
 import com.systems.dto.TokenResponse;
+import com.systems.security.CryptoJSDecrypt;
 import com.systems.service.AuthService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,12 +15,54 @@ import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthController {
     
     private final AuthService authService;
+    
+    @Value("${secretLogin}")
+    private String secretKeyLogin;
+
+    @PostMapping("/loginv2")
+    public ResponseEntity<TokenResponse> autenticarv2(@RequestBody Map<String, String> request) {
+        try {
+
+            String encryptedData = request.get("encryptedData");
+
+            String decryptedData = CryptoJSDecrypt.decrypt(encryptedData, secretKeyLogin);
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            LoginRequest loginRequest = objectMapper.readValue(decryptedData, LoginRequest.class);
+
+            final TokenResponse token = authService.login(loginRequest);
+
+            // Retornar solo el accessToken al frontend
+            return ResponseEntity.ok(new TokenResponse(
+                token.status(),
+                token.codigo(),
+                token.mensaje(),
+                token.accessToken(),
+                null // no mandamos el refresh token al body
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new TokenResponse(
+                    500,                   // status HTTP
+                    -1,                    // código personalizado de error
+                    "Error: " + e.getMessage(),  // mensaje de error
+                    null,                  // sin access token
+                    null                   // sin refresh token
+                ));
+        }
+    }
     
     @PostMapping("/login")
     public ResponseEntity<TokenResponse> autenticar(@RequestBody final LoginRequest loginRequest,
@@ -84,6 +128,11 @@ public class AuthController {
 
         response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
         return ResponseEntity.noContent().build(); // 204 No Content
+    }
+    
+    @GetMapping("/apiKeyLogin")
+    public String getApikeyLogin(){
+        return secretKeyLogin;
     }
     @GetMapping("/holaJava")
     public String holaJava(){

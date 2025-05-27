@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<EntityFake, Long> {
     
+    @Query(value = "select * from mantenimiento.f_sp_reset_pass(:aiIdUsuario)", nativeQuery = true)
+    List<Object[]> fSpResetPass(
+            @Param("aiIdUsuario") Integer aiIdUsuario
+    );
+    
     @Query(value = "select * from mantenimiento.f_sp_change_pass(:aiIdUsuario,:asDeClaveActual,:asDeClaveNueva)", nativeQuery = true)
     List<Object[]> fSpChangePass(
             @Param("aiIdUsuario") Integer aiIdUsuario,

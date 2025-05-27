@@ -41,8 +41,6 @@ public class UserController {
     
     @PostMapping
     public ResponseEntity<ResultSpDTO> UserSave(@RequestBody @Valid VistaUsuarioxId vistaUsuarioxId) {
-        //log.info("Cuerpo Body, {}", vistaUsuarioxId.getDe_alias());
-        System.out.println("mirame");        
         return ResponseEntity.ok(userService.userSave(vistaUsuarioxId));
     }
     
@@ -82,5 +80,10 @@ public class UserController {
     @PostMapping("/cambiarClave")
     public ResponseEntity<ResultSpDTO> fSpChangePass(@RequestBody @Valid ClavesCambioDTO clavesCambioDTO) {
         return ResponseEntity.ok(userService.fSpChangePass(clavesCambioDTO.getDeClaveActual(),clavesCambioDTO.getDeClaveNueva()));
+    }
+    
+    @PostMapping("/resetClave")
+    public ResponseEntity<ResultSpDTO> fSpResetPass() {
+        return ResponseEntity.ok(userService.fSpResetPass());
     }
 }

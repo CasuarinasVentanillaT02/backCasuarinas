@@ -261,4 +261,19 @@ public class UserServiceImpl implements UserService {
         throw new RuntimeException("No se pudo procesar el Cambiar Clave de Usuario");
     }
     
+    @Override
+    public ResultSpDTO fSpResetPass() {
+        Integer idUsuario = this.getLoginUser().getId_usuario();
+        List<Object[]> result = userRepository.fSpResetPass(idUsuario);
+        if (!result.isEmpty()) {
+            Object[] row = result.get(0);
+            ResultSpDTO dto = new ResultSpDTO();
+                
+            dto.setCodigo((Integer)row[0]);
+            dto.setStatus(dto.getCodigo() == 1 ? 200 : 500);
+            dto.setMensaje((String)row[1]);
+            return dto;
+        }
+        throw new RuntimeException("No se pudo procesar el Reseteo de Clave del Usuario");
+    }
 }
