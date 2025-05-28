@@ -262,8 +262,8 @@ public class UserServiceImpl implements UserService {
     }
     
     @Override
-    public ResultSpDTO fSpResetPass() {
-        Integer idUsuario = this.getLoginUser().getId_usuario();
+    public ResultSpDTO fSpResetPass(Integer idUsuario) {
+        //Integer idUsuario = this.getLoginUser().getId_usuario();
         List<Object[]> result = userRepository.fSpResetPass(idUsuario);
         if (!result.isEmpty()) {
             Object[] row = result.get(0);
