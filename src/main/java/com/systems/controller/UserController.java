@@ -82,7 +82,7 @@ public class UserController {
         return ResponseEntity.ok(userService.fSpChangePass(clavesCambioDTO.getDeClaveActual(),clavesCambioDTO.getDeClaveNueva()));
     }
     
-    @PostMapping("/resetClave//{idUsuario}")
+    @PostMapping("/resetClave/{idUsuario}")
     public ResponseEntity<ResultSpDTO> fSpResetPass(@PathVariable Integer idUsuario) {
         return ResponseEntity.ok(userService.fSpResetPass(idUsuario));
     }
