@@ -1,4 +1,6 @@
-FROM openjdk:21-jdk-slim
+# FROM openjdk:21-jdk-slim
+FROM openjdk:21.0.3-slim-bullseye
+
 
 # Crea un directorio de trabajo
 WORKDIR /app
