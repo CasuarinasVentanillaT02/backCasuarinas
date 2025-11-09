@@ -1,5 +1,5 @@
 # FROM openjdk:21-jdk-slim
-FROM openjdk:21.0.3-slim-bullseye
+FROM eclipse-temurin:21-jdk-jammy
 
 
 # Crea un directorio de trabajo
