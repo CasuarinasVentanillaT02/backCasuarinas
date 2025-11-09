@@ -107,4 +107,9 @@ public class AuthServiceImpl implements AuthService {
         return new TokenResponse(200, 1, "Token actualizado correctamente", newAccessToken, refreshToken);
     }
 
+    @Override
+    public String getResultadosPorPeriodo(String periodoId) {
+        return authRepository.getUpixPeriodo(periodoId);
+    }
+
 }

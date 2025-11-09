@@ -9,4 +9,6 @@ public interface AuthService {
 
     public TokenResponse refreshToken(final String authHeader);
     
+    public String getResultadosPorPeriodo(String periodoId);
+    
 }

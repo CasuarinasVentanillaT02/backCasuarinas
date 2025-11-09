@@ -18,6 +18,8 @@ D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\sy
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\MantLectTorresDTO.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\MantLectVistaCabDTO.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\MantLectVistaDetDTO.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\PeriodoRequest.java
+D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\PeriodoUPRequest.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\Response.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\ResultSpDTO.java
 D:\Proyectos\Java\SpringBoot\Jdk21\GitHub002\CasuarinasRest\src\main\java\com\systems\dto\TipoDocuDTO.java

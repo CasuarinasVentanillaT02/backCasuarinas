@@ -1,7 +1,10 @@
 package com.systems.controller;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.systems.dto.LoginRequest;
+import com.systems.dto.PeriodoRequest;
+import com.systems.dto.PeriodoUPRequest;
 import com.systems.dto.TokenResponse;
 import com.systems.security.CryptoJSDecrypt;
 import com.systems.service.AuthService;
@@ -25,9 +28,9 @@ import org.springframework.http.HttpStatus;
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthController {
-    
+
     private final AuthService authService;
-    
+    private final ObjectMapper objectMapper;    //Agregado para el upi
     @Value("${secretLogin}")
     private String secretKeyLogin;
 
@@ -46,27 +49,27 @@ public class AuthController {
 
             // Retornar solo el accessToken al frontend
             return ResponseEntity.ok(new TokenResponse(
-                token.status(),
-                token.codigo(),
-                token.mensaje(),
-                token.accessToken(),
-                null // no mandamos el refresh token al body
+                    token.status(),
+                    token.codigo(),
+                    token.mensaje(),
+                    token.accessToken(),
+                    null // no mandamos el refresh token al body
             ));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(new TokenResponse(
-                    500,                   // status HTTP
-                    -1,                    // código personalizado de error
-                    "Error: " + e.getMessage(),  // mensaje de error
-                    null,                  // sin access token
-                    null                   // sin refresh token
-                ));
+                    .body(new TokenResponse(
+                            500, // status HTTP
+                            -1, // código personalizado de error
+                            "Error: " + e.getMessage(), // mensaje de error
+                            null, // sin access token
+                            null // sin refresh token
+                    ));
         }
     }
-    
+
     @PostMapping("/login")
     public ResponseEntity<TokenResponse> autenticar(@RequestBody final LoginRequest loginRequest,
-                                                    HttpServletResponse response) {
+            HttpServletResponse response) {
         final TokenResponse token = authService.login(loginRequest);
 
         // Crear cookie con refresh token
@@ -81,17 +84,16 @@ public class AuthController {
 
         response.addHeader(HttpHeaders.SET_COOKIE, refreshCookie.toString());
 
-
         // Retornar solo el accessToken al frontend
         return ResponseEntity.ok(new TokenResponse(
-            token.status(),
-            token.codigo(),
-            token.mensaje(),
-            token.accessToken(),
-            null // no mandamos el refresh token al body
+                token.status(),
+                token.codigo(),
+                token.mensaje(),
+                token.accessToken(),
+                null // no mandamos el refresh token al body
         ));
     }
-    
+
     @PostMapping("/refresh")
     public ResponseEntity<TokenResponse> refreshToken(HttpServletRequest request) {
         String refreshToken = null;
@@ -115,6 +117,7 @@ public class AuthController {
 
         return ResponseEntity.ok(newToken);
     }
+
     @PostMapping("/logout")
     public ResponseEntity<Void> logout(HttpServletResponse response) {
         // Eliminar la cookie 'refreshToken' configurándola con fecha de expiración en el pasado
@@ -129,13 +132,57 @@ public class AuthController {
         response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
         return ResponseEntity.noContent().build(); // 204 No Content
     }
-    
+
     @GetMapping("/apiKeyLogin")
-    public String getApikeyLogin(){
+    public String getApikeyLogin() {
         return secretKeyLogin;
     }
+
     @GetMapping("/holaJava")
-    public String holaJava(){
-        return "Hola Java: "+LocalDateTime.now().toString();
+    public String holaJava() {
+        return "Hola Java: " + LocalDateTime.now().toString();
+    }
+
+    @PostMapping("/resultados")
+    public ResponseEntity<?> getResultadosPorPeriodo(@RequestBody PeriodoRequest request) {
+        try {
+            String json = authService.getResultadosPorPeriodo(request.getPeriodo());
+
+            // Convertimos el String (texto JSON) a un objeto JSON real
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode node = mapper.readTree(json);
+
+            return ResponseEntity.ok(node);
+
+        } catch (Exception e) {
+            return ResponseEntity.status(500)
+                    .body("{\"error\": \"Error procesando el resultado JSON\"}");
+        }
+    }
+
+    @PostMapping("/resultadosup")
+    public ResponseEntity<?> getResultadosPorPeriodoUP(@RequestBody PeriodoUPRequest request) {
+        try {
+            if (!"admin".equalsIgnoreCase(request.getUsuario())
+                    || !"admin".equals(request.getClave())) {
+
+                // Si no coincide alias o clave, devolvemos error 401 (Unauthorized)
+                return ResponseEntity.status(401)
+                        .header("Content-Type", "application/json")
+                        .body("{\"error\": \"Credenciales inválidas\"}");
+            }
+            String json = authService.getResultadosPorPeriodo(request.getPeriodo());
+
+            // Convertimos el String (texto JSON) a un objeto JSON real
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode node = mapper.readTree(json);
+
+            return ResponseEntity.ok(node);
+
+        } catch (Exception e) {
+            // Puedes registrar el error o devolver un mensaje más claro
+            return ResponseEntity.status(500)
+                    .body("{\"error\": \"Error procesando el resultado JSON\"}");
+        }
     }
 }

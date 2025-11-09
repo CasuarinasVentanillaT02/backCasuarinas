@@ -9,6 +9,7 @@ com\systems\dto\HabiTratamientoDTO.class
 com\systems\dto\MantLectVistaDetDTO$MantLectVistaDetDTOBuilder.class
 com\systems\repository\UserRepository.class
 com\systems\dto\MantLectCabSave$MantLectCabSaveBuilder.class
+com\systems\dto\PeriodoUPRequest.class
 com\systems\controller\HabitanteController.class
 com\systems\dto\Response$ResponseBuilder.class
 com\systems\service\AuthService.class
@@ -45,6 +46,7 @@ com\systems\dto\ListaHabitantes$ListaHabitantesBuilder.class
 com\systems\dto\LoginRequest.class
 com\systems\repository\AuthRepository.class
 com\systems\controller\ReportesController.class
+com\systems\dto\PeriodoUPRequest$PeriodoUPRequestBuilder.class
 com\systems\repository\TipoDocuRepository.class
 com\systems\dto\VigCocheraHabiDTO.class
 com\systems\dto\MantLectCabDetSave$MantLectCabDetSaveBuilder.class
@@ -59,6 +61,7 @@ com\systems\service\impl\VigilanciaServiceImpl.class
 com\systems\security\SecurityFilter.class
 com\systems\exceptions\InvalidCredentialsException.class
 com\systems\dto\MantLectPeriodosDTO.class
+com\systems\dto\PeriodoRequest.class
 com\systems\exceptions\NameValueRequiredException.class
 com\systems\dto\HabitantesEntity.class
 com\systems\dto\ListaHabitantes.class

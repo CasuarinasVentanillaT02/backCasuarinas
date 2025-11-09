@@ -20,4 +20,9 @@ public interface AuthRepository extends JpaRepository<EntityFake, Long> {
     List<Object[]> validateUser(
         @Param("asDeUsuario") String asDeUsuario
     );
+    
+    @Query(value = "SELECT mantenimiento.get_mo_upi_resultados_x_peri(:asPeriodoId)", nativeQuery = true)
+    String getUpixPeriodo(
+        @Param("asPeriodoId") String asPeriodoId
+    );
 }
